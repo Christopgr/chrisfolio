@@ -15,7 +15,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-16">
-            <span className="text-xs font-mono text-accent tracking-wider uppercase">
+            <span className="text-xs font-mono text-gold tracking-wider uppercase">
               01
             </span>
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight">
@@ -52,7 +52,7 @@ export default function About() {
             <div className="grid grid-cols-2 gap-6">
               {skills.map((skill) => (
                 <div key={skill.category} className="space-y-3">
-                  <h3 className="text-xs font-mono text-accent tracking-wider uppercase">
+                  <h3 className="text-xs font-mono text-gold-dim tracking-wider uppercase">
                     {skill.category}
                   </h3>
                   <ul className="space-y-2">
@@ -61,7 +61,7 @@ export default function About() {
                         key={item}
                         className="text-sm text-subtle flex items-center gap-2"
                       >
-                        <span className="w-1 h-1 rounded-full bg-accent/50" />
+                        <span className="w-1 h-1 rounded-full bg-gold/60" />
                         {item}
                       </li>
                     ))}

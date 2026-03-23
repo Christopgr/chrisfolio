@@ -49,7 +49,7 @@ export default function Header() {
           ))}
           <a
             href="mailto:ctopalis@gmail.com"
-            className="text-sm px-4 py-2 rounded-full bg-accent/10 text-accent-light border border-accent/20 hover:bg-accent/20 transition-all duration-200"
+            className="text-sm px-4 py-2 rounded-full bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 transition-all duration-200"
           >
             Get in Touch
           </a>
@@ -101,7 +101,7 @@ export default function Header() {
               ))}
               <a
                 href="mailto:ctopalis@gmail.com"
-                className="text-sm px-4 py-2 rounded-full bg-accent/10 text-accent-light border border-accent/20 w-fit"
+                className="text-sm px-4 py-2 rounded-full bg-accent/10 text-accent border border-accent/20 w-fit"
               >
                 Get in Touch
               </a>

@@ -49,12 +49,12 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="py-32 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-16">
-            <span className="text-xs font-mono text-accent tracking-wider uppercase">
+            <span className="text-xs font-mono text-gold tracking-wider uppercase">
               02
             </span>
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight">
@@ -127,7 +127,7 @@ export default function Projects() {
                     </span>
                   </div>
 
-                  <p className="text-xs uppercase tracking-wider text-accent font-medium">
+                  <p className="text-xs uppercase tracking-wider text-gold-dim font-medium">
                     {project.brand}
                   </p>
 

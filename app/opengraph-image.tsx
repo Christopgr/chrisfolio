@@ -16,7 +16,7 @@ export default function OGImage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          background: "#0a0a0b",
+          background: "#f3eeed",
           fontFamily: "sans-serif",
           position: "relative",
         }}
@@ -31,7 +31,7 @@ export default function OGImage() {
             width: 500,
             height: 500,
             borderRadius: "50%",
-            background: "rgba(108, 99, 255, 0.08)",
+            background: "rgba(184, 51, 46, 0.06)",
             filter: "blur(80px)",
           }}
         />
@@ -50,10 +50,10 @@ export default function OGImage() {
               width: 8,
               height: 8,
               borderRadius: "50%",
-              background: "#22c55e",
+              background: "#ebbd58",
             }}
           />
-          <span style={{ color: "#8a8a96", fontSize: 20 }}>
+          <span style={{ color: "#6e6360", fontSize: 20 }}>
             Software Engineer @ Wealthyhood
           </span>
         </div>
@@ -63,7 +63,7 @@ export default function OGImage() {
           style={{
             fontSize: 72,
             fontWeight: 300,
-            color: "#e8e8ed",
+            color: "#1a1a1a",
             margin: 0,
             letterSpacing: "-0.02em",
           }}
@@ -75,7 +75,7 @@ export default function OGImage() {
         <p
           style={{
             fontSize: 24,
-            color: "#a89fff",
+            color: "#b8332e",
             margin: "16px 0 0 0",
             fontStyle: "italic",
           }}
@@ -97,10 +97,10 @@ export default function OGImage() {
               style={{
                 padding: "8px 20px",
                 borderRadius: 999,
-                border: "1px solid #1e1e22",
-                color: "#8a8a96",
+                border: "1px solid #d9d0ce",
+                color: "#6e6360",
                 fontSize: 16,
-                background: "#111113",
+                background: "#ffffff",
               }}
             >
               {skill}
@@ -113,7 +113,7 @@ export default function OGImage() {
           style={{
             position: "absolute",
             bottom: 32,
-            color: "#3a3a40",
+            color: "#b5aaa7",
             fontSize: 16,
           }}
         >

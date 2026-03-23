@@ -23,12 +23,12 @@ const socials = [
 export default function Contact() {
   return (
     <section id="contact" className="py-32 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-16">
-            <span className="text-xs font-mono text-accent tracking-wider uppercase">
+            <span className="text-xs font-mono text-gold tracking-wider uppercase">
               04
             </span>
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight">
@@ -86,7 +86,7 @@ export default function Contact() {
 
           <AnimatedSection delay={0.2}>
             <div className="p-8 rounded-2xl bg-surface border border-border glow">
-              <p className="text-xs font-mono text-accent tracking-wider uppercase mb-6">
+              <p className="text-xs font-mono text-gold-dim tracking-wider uppercase mb-6">
                 Quick message
               </p>
               <form

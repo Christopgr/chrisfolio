@@ -3,15 +3,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #0a0a0b;
-  --color-surface: #111113;
-  --color-border: #1e1e22;
-  --color-muted: #3a3a40;
-  --color-text: #e8e8ed;
-  --color-subtle: #8a8a96;
-  --color-accent: #6c63ff;
-  --color-accent-dim: #4a43cc;
-  --color-accent-light: #a89fff;
+  --color-bg: #f3eeed;
+  --color-surface: #ffffff;
+  --color-border: #d9d0ce;
+  --color-muted: #b5aaa7;
+  --color-text: #1a1a1a;
+  --color-subtle: #6e6360;
+  --color-accent: #b8332e;
+  --color-accent-dim: #9a2b27;
+  --color-accent-light: #c94a45;
+  --color-gold: #ebbd58;
+  --color-gold-dim: #d4a94e;
 
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Instrument Serif", Georgia, serif;
@@ -50,8 +52,8 @@ body {
 }
 
 ::selection {
-  background-color: #6c63ff33;
-  color: #e8e8ed;
+  background-color: #b8332e22;
+  color: #1a1a1a;
 }
 
 /* Subtle noise texture */
@@ -62,18 +64,18 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 50;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #e8e8ed 0%, #8a8a96 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #6e6360 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .accent-gradient {
-  background: linear-gradient(135deg, #a89fff 0%, #6c63ff 60%, #4a43cc 100%);
+  background: linear-gradient(135deg, #c94a45 0%, #b8332e 60%, #9a2b27 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -86,11 +88,11 @@ body::after {
 .card-hover:hover {
   transform: translateY(-3px);
   border-color: var(--color-muted);
-  box-shadow: 0 8px 40px rgba(108, 99, 255, 0.06);
+  box-shadow: 0 8px 40px rgba(184, 51, 46, 0.08);
 }
 
 .glow {
-  box-shadow: 0 0 80px rgba(108, 99, 255, 0.08);
+  box-shadow: 0 0 80px rgba(184, 51, 46, 0.06);
 }
 
 /* Custom scrollbar */
