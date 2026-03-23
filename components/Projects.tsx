@@ -44,7 +44,7 @@ const projects = [
     brand: "Greece's leading bookstore — 45 years of heritage",
     description:
       "Built on Bizweb. Owned front-end and back-end for one of Greece's most established bookstores. Complex search across hundreds of thousands of titles, curated selections, editorial content, and social features like reviews and reading lists.",
-    tags: ["Bizweb", "React", ".NET 8", "MySQL"],
+    tags: ["Bizweb", "React", ".NET 8", "MSSQL"],
     color: "#c27b1a",
     via: "SLEED",
   },
@@ -55,7 +55,7 @@ const projects = [
     brand: "The Antetokounmpo brothers' lifestyle brand",
     description:
       'Custom nopCommerce e-commerce for the Antetokounmpo family\'s brand. Owned front-end, back-end, and ERP integration. Global shipping, multi-currency support, and premium collection drops.',
-    tags: ["nopCommerce", ".NET", "E-Commerce", "Global"],
+    tags: ["nopCommerce", ".NET", "MySQL", "Global"],
     color: "#18181b",
     via: "SLEED",
   },
