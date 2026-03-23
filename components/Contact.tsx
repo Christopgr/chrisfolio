@@ -15,7 +15,7 @@ const socials = [
   },
   {
     label: "GitHub",
-    value: "github",
+    value: "christopgr",
     href: "https://github.com/christopgr",
   },
 ];
