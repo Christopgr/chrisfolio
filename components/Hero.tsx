@@ -24,12 +24,11 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl sm:text-5xl md:text-7xl font-light leading-[1.1] tracking-tight mb-6"
         >
-          <span className="gradient-text">Crafting Digital</span>
+          <span className="gradient-text">Engineer, Builder,</span>
           <br />
           <span className="font-display italic text-accent-light">
-            Experiences
-          </span>{" "}
-          <span className="gradient-text">That Matter</span>
+            Problem Solver
+          </span>
         </motion.h1>
 
         <motion.p
@@ -38,9 +37,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-subtle text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed"
         >
-          Full-stack engineer with a focus on building high-performance
-          e-commerce platforms and fintech products. TypeScript, React, and
-          modern web technologies.
+          Currently building an investment platform at Wealthyhood.
+          Previously shipped e-commerce for brands like Lacoste and
+          AntetokounBros.
         </motion.p>
 
         <motion.div

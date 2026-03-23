@@ -8,7 +8,7 @@ const experiences = [
     company: "Wealthyhood",
     period: "Feb 2025 — Present",
     description:
-      "Building fintech products with TypeScript, React, and MongoDB. Working on investment platform features serving thousands of users.",
+      "Working across the full stack on an investment platform — TypeScript, React, MongoDB. Shipping features used by thousands of investors daily.",
     current: true,
   },
   {

@@ -45,9 +45,8 @@ export default function Contact() {
           <AnimatedSection delay={0.1}>
             <div className="space-y-6">
               <p className="text-subtle leading-relaxed max-w-md">
-                I&apos;m always open to discussing new projects, creative ideas,
-                or opportunities to be part of something great. Let&apos;s
-                connect.
+                Not actively looking for new projects, but always open to a good
+                conversation. Feel free to reach out.
               </p>
 
               <div className="space-y-4">

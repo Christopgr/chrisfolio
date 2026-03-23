@@ -29,21 +29,20 @@ export default function About() {
           <AnimatedSection delay={0.1}>
             <div className="space-y-6 text-subtle leading-relaxed">
               <p>
-                I&apos;m a software engineer based in Athens, Greece, with a passion for
-                building polished, high-performance web applications. Currently
-                crafting fintech solutions at{" "}
-                <span className="text-text font-medium">Wealthyhood</span>.
+                Software engineer based in Athens, Greece. Currently at{" "}
+                <span className="text-text font-medium">Wealthyhood</span>,
+                working on an investment platform that makes wealth-building
+                accessible to everyone.
               </p>
               <p>
-                With experience spanning e-commerce platforms for major fashion
-                brands to fintech products, I bring a full-stack perspective to
-                every project. I thrive at the intersection of clean code and
-                great user experience.
+                Before fintech, I spent nearly four years building e-commerce
+                platforms for brands like Lacoste, Bodytalk, and AntetokounBros —
+                product catalogs, checkout flows, search engines, and analytics
+                integrations.
               </p>
               <p>
-                Beyond engineering, I run a family packaging business — giving me
-                a unique perspective on both the technical and business side of
-                building products.
+                I also run a family packaging business — logistics, customers,
+                and the kind of problems software alone can&apos;t solve.
               </p>
             </div>
           </AnimatedSection>
