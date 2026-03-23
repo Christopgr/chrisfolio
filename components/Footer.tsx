@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="py-8 border-t border-border">
       <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span className="font-display text-lg text-subtle">CT</span>
+        <span className="font-logo text-xl text-subtle">CT</span>
         <p className="text-xs text-muted">
           &copy; {new Date().getFullYear()} Chris Topalis. All rights reserved.
         </p>
