@@ -5,14 +5,26 @@ import AnimatedSection from "./AnimatedSection";
 
 const projects = [
   {
+    title: "Wealthyhood",
+    url: "wealthyhood.com",
+    slug: "wealthyhood",
+    brand: "Investment platform for everyone",
+    description:
+      "An investment platform making wealth-building accessible. Primarily working on the API layer with some contributions to internal web projects. TypeScript, React, MongoDB.",
+    tags: ["Fintech", "TypeScript", "React", "MongoDB"],
+    color: "#2563eb",
+    via: null,
+  },
+  {
     title: "Lacoste Greece",
     url: "lacoste.gr",
     slug: "lacoste",
     brand: "Iconic French fashion-sport brand",
     description:
-      "Built at SLEED on custom nopCommerce. Led the front-end and back-end development for Lacoste's Greek e-commerce — product catalog, multi-category navigation, checkout flows, and ERP integrations.",
+      "Custom nopCommerce e-commerce for Lacoste's Greek market. Part of the front-end and back-end team, owned the ERP integration. Product catalog, multi-category navigation, and checkout flows.",
     tags: ["nopCommerce", ".NET", "E-Commerce", "MSSQL"],
     color: "#0a6640",
+    via: "SLEED",
   },
   {
     title: "Bodytalk",
@@ -20,9 +32,10 @@ const projects = [
     slug: "bodytalk",
     brand: "Greek athletic fashion brand",
     description:
-      "Built at SLEED on Bizweb, the custom e-commerce platform I helped build as one of the main engineers. Led front-end, back-end, and ERP integrations. Dynamic filtering, analytics (GTM, Skroutz), payments (Simpler), and email marketing (Klaviyo).",
+      "Built on Bizweb, a custom e-commerce platform I helped build as one of the main engineers. Owned front-end and back-end, helped with ERP integration. Dynamic filtering, analytics (GTM, Skroutz), payments (Simpler), and Klaviyo.",
     tags: ["Bizweb", "React", ".NET 8", "ERP"],
     color: "#e11d48",
+    via: "SLEED",
   },
   {
     title: "Politeia Net",
@@ -30,9 +43,10 @@ const projects = [
     slug: "politeianet",
     brand: "Greece's leading bookstore — 45 years of heritage",
     description:
-      "Built at SLEED on Bizweb. Led front-end, back-end, and ERP integrations for one of Greece's most established bookstores. Complex search across hundreds of thousands of titles, curated selections, and editorial content.",
+      "Built on Bizweb. Owned front-end and back-end for one of Greece's most established bookstores. Complex search across hundreds of thousands of titles, curated selections, and editorial content.",
     tags: ["Bizweb", "React", ".NET 8", "MySQL"],
     color: "#c27b1a",
+    via: "SLEED",
   },
   {
     title: "AntetokounBros",
@@ -40,9 +54,10 @@ const projects = [
     slug: "antetokounbros",
     brand: "The Antetokounmpo brothers' lifestyle brand",
     description:
-      'Built at SLEED on custom nopCommerce. Developed the official e-commerce store for the Antetokounmpo family\'s brand — global shipping, multi-currency support, and premium collection drops.',
+      'Custom nopCommerce e-commerce for the Antetokounmpo family\'s brand. Owned front-end, back-end, and ERP integration. Global shipping, multi-currency support, and premium collection drops.',
     tags: ["nopCommerce", ".NET", "E-Commerce", "Global"],
     color: "#18181b",
+    via: "SLEED",
   },
 ];
 
@@ -125,6 +140,11 @@ export default function Projects() {
                     <span className="text-xs font-mono text-muted">
                       {project.url}
                     </span>
+                    {project.via && (
+                      <span className="text-xs px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/15 font-medium">
+                        via {project.via}
+                      </span>
+                    )}
                   </div>
 
                   <p className="text-xs uppercase tracking-wider text-gold-dim font-medium">
