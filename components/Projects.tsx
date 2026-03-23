@@ -1,0 +1,150 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import AnimatedSection from "./AnimatedSection";
+
+const projects = [
+  {
+    title: "Lacoste Greece",
+    url: "lacoste.gr",
+    image: "/projects/lacoste.png",
+    brand: "Iconic French fashion-sport brand",
+    description:
+      "Full e-commerce platform for Lacoste's Greek market. Built a high-performance storefront featuring their signature polos, sneakers, and accessories — with complex product catalog management, multi-category navigation, and optimized checkout flows.",
+    tags: ["E-Commerce", "React", ".NET 8", "MSSQL"],
+    color: "#0a6640",
+  },
+  {
+    title: "Bodytalk",
+    url: "bodytalk.com",
+    image: "/projects/bodytalk.png",
+    brand: "Greek athletic fashion brand",
+    description:
+      "E-commerce experience for Bodytalk's sportswear collections. Implemented dynamic product filtering, inventory management, conversion-optimized funnels, and integrations with analytics (GTM, Skroutz), payments (Simpler), and email marketing (Klaviyo).",
+    tags: ["E-Commerce", "React", ".NET 8", "Performance"],
+    color: "#e11d48",
+  },
+  {
+    title: "Politeia Net",
+    url: "politeianet.gr",
+    image: "/projects/politeianet.png",
+    brand: "Greece's leading bookstore — 45 years of heritage",
+    description:
+      "Online platform for Politeia, one of Greece's most established bookstores. Complex search across hundreds of thousands of titles, curated monthly selections, bestseller lists, and a rich editorial blog experience.",
+    tags: ["E-Commerce", "Search", ".NET", "MySQL"],
+    color: "#c27b1a",
+  },
+  {
+    title: "AntetokounBros",
+    url: "antetokounbros.com",
+    image: "/projects/antetokounbros.png",
+    brand: "The Antetokounmpo brothers' lifestyle brand",
+    description:
+      'Official e-commerce store for the Antetokounmpo family\'s fashion label. Brand-focused design reflecting their "We are all bros" philosophy, with global shipping, multi-currency support, and premium collection drops.',
+    tags: ["E-Commerce", "React", ".NET 8", "Global"],
+    color: "#18181b",
+  },
+];
+
+export default function Projects() {
+  return (
+    <section id="projects" className="py-32 relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+
+      <div className="max-w-6xl mx-auto px-6">
+        <AnimatedSection>
+          <div className="flex items-center gap-4 mb-16">
+            <span className="text-xs font-mono text-accent tracking-wider uppercase">
+              02
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-light tracking-tight">
+              Featured{" "}
+              <span className="font-display italic text-accent-light">
+                Projects
+              </span>
+            </h2>
+            <div className="flex-1 h-px bg-border" />
+          </div>
+        </AnimatedSection>
+
+        <div className="grid gap-8">
+          {projects.map((project, i) => (
+            <AnimatedSection key={project.url} delay={i * 0.1}>
+              <motion.a
+                href={`https://${project.url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-2xl bg-surface border border-border card-hover relative overflow-hidden"
+                whileHover={{ scale: 1.003 }}
+                transition={{ duration: 0.2 }}
+              >
+                {/* Project screenshot */}
+                <div className="relative w-full aspect-[16/9] overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} website screenshot`}
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 1152px"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+
+                  {/* Visit badge */}
+                  <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-bg/80 backdrop-blur-sm border border-border text-xs text-subtle flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Visit Site
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Project info */}
+                <div className="p-6 sm:p-8 space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                    <h3 className="text-xl font-medium text-text group-hover:text-accent-light transition-colors">
+                      {project.title}
+                    </h3>
+                    <span className="text-xs font-mono text-muted">
+                      {project.url}
+                    </span>
+                  </div>
+
+                  <p className="text-xs uppercase tracking-wider text-accent font-medium">
+                    {project.brand}
+                  </p>
+
+                  <p className="text-subtle text-sm leading-relaxed max-w-2xl">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs px-2.5 py-1 rounded-full bg-bg border border-border text-subtle"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.a>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
