@@ -1,14 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 
 const projects = [
   {
     title: "Lacoste Greece",
     url: "lacoste.gr",
-    image: "/projects/lacoste.png",
+    slug: "lacoste",
     brand: "Iconic French fashion-sport brand",
     description:
       "Full e-commerce platform for Lacoste's Greek market. Built a high-performance storefront featuring their signature polos, sneakers, and accessories — with complex product catalog management, multi-category navigation, and optimized checkout flows.",
@@ -18,7 +17,7 @@ const projects = [
   {
     title: "Bodytalk",
     url: "bodytalk.com",
-    image: "/projects/bodytalk.png",
+    slug: "bodytalk",
     brand: "Greek athletic fashion brand",
     description:
       "E-commerce experience for Bodytalk's sportswear collections. Implemented dynamic product filtering, inventory management, conversion-optimized funnels, and integrations with analytics (GTM, Skroutz), payments (Simpler), and email marketing (Klaviyo).",
@@ -28,7 +27,7 @@ const projects = [
   {
     title: "Politeia Net",
     url: "politeianet.gr",
-    image: "/projects/politeianet.png",
+    slug: "politeianet",
     brand: "Greece's leading bookstore — 45 years of heritage",
     description:
       "Online platform for Politeia, one of Greece's most established bookstores. Complex search across hundreds of thousands of titles, curated monthly selections, bestseller lists, and a rich editorial blog experience.",
@@ -38,7 +37,7 @@ const projects = [
   {
     title: "AntetokounBros",
     url: "antetokounbros.com",
-    image: "/projects/antetokounbros.png",
+    slug: "antetokounbros",
     brand: "The Antetokounmpo brothers' lifestyle brand",
     description:
       'Official e-commerce store for the Antetokounmpo family\'s fashion label. Brand-focused design reflecting their "We are all bros" philosophy, with global shipping, multi-currency support, and premium collection drops.',
@@ -81,13 +80,20 @@ export default function Projects() {
               >
                 {/* Project screenshot */}
                 <div className="relative w-full aspect-[16/9] overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} website screenshot`}
-                    fill
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 1152px"
-                  />
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcSet={`/projects/${project.slug}-640w.webp 640w, /projects/${project.slug}-960w.webp 960w, /projects/${project.slug}-1280w.webp 1280w, /projects/${project.slug}-1920w.webp 1920w`}
+                      sizes="(max-width: 640px) 640px, (max-width: 960px) 960px, (max-width: 1280px) 1280px, 1920px"
+                    />
+                    <img
+                      src={`/projects/${project.slug}.webp`}
+                      alt={`${project.title} website screenshot`}
+                      loading={i === 0 ? undefined : "lazy"}
+                      decoding="async"
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </picture>
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
