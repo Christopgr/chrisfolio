@@ -16,7 +16,7 @@ const experiences = [
     company: "SLEED",
     period: "May 2021 — Jan 2025",
     description:
-      "Built e-commerce platforms for major brands including Lacoste, Bodytalk, Politeia, and AntetokounBros. Full-stack development with .NET 8, React, and SQL databases.",
+      "One of the core developers of Bizweb, a custom e-commerce platform built with .NET 8 and React. Shipped storefronts for Lacoste, Bodytalk, Politeia, and AntetokounBros.",
     current: false,
   },
   {

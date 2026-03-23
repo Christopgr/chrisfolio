@@ -32,7 +32,7 @@ const projects = [
     slug: "bodytalk",
     brand: "Greek athletic fashion brand",
     description:
-      "Built on Bizweb, a custom e-commerce platform I helped build as one of the main engineers. Owned front-end and back-end, helped with ERP integration. Dynamic filtering, analytics (GTM, Skroutz), payments (Simpler), and Klaviyo.",
+      "Built on Bizweb. Owned front-end and back-end, helped with ERP integration. Dynamic filtering, analytics (GTM, Skroutz), payments (Simpler), and Klaviyo.",
     tags: ["Bizweb", "React", ".NET 8", "ERP"],
     color: "#e11d48",
     via: "SLEED",
