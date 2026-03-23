@@ -32,7 +32,7 @@ const projects = [
     slug: "bodytalk",
     brand: "Greek athletic fashion brand",
     description:
-      "Built on Bizweb. Owned front-end and back-end, helped with ERP integration. Dynamic filtering, analytics (GTM, Skroutz), payments (Simpler), and Klaviyo.",
+      "Built on Bizweb. Owned front-end and back-end, helped with ERP integration. Dynamic filtering, analytics (GTM, Skroutz), payments (Klarna), and Klaviyo.",
     tags: ["Bizweb", "React", ".NET 8", "ERP"],
     color: "#e11d48",
     via: "SLEED",
@@ -43,7 +43,7 @@ const projects = [
     slug: "politeianet",
     brand: "Greece's leading bookstore — 45 years of heritage",
     description:
-      "Built on Bizweb. Owned front-end and back-end for one of Greece's most established bookstores. Complex search across hundreds of thousands of titles, curated selections, and editorial content.",
+      "Built on Bizweb. Owned front-end and back-end for one of Greece's most established bookstores. Complex search across hundreds of thousands of titles, curated selections, editorial content, and social features like reviews and reading lists.",
     tags: ["Bizweb", "React", ".NET 8", "MySQL"],
     color: "#c27b1a",
     via: "SLEED",
