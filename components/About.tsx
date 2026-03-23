@@ -29,20 +29,24 @@ export default function About() {
           <AnimatedSection delay={0.1}>
             <div className="space-y-6 text-subtle leading-relaxed">
               <p>
-                Software engineer based in Athens, Greece. Currently at{" "}
+                Software engineer based in Athens, Greece. Working at{" "}
                 <span className="text-text font-medium">Wealthyhood</span>,
-                working on an investment platform that makes wealth-building
-                accessible to everyone.
+                an investment platform that makes wealth-building accessible
+                to everyone.
               </p>
               <p>
-                Before fintech, I spent nearly four years building e-commerce
-                platforms for brands like Lacoste, Bodytalk, and AntetokounBros —
-                product catalogs, checkout flows, search engines, and analytics
-                integrations.
+                Before fintech, I spent nearly five years building e-commerce
+                platforms as one of the core developers at SLEED for brands 
+                like Lacoste, Politeia, and AntetokounBros — product catalogs, 
+                checkout flows, search engines, analaytics, payment and ERP integrations.
               </p>
               <p>
-                I also run a family packaging business — logistics, customers,
-                and the kind of problems software alone can&apos;t solve.
+                I also own a family packaging business! My family has been in 
+                the packaging sector for over 25 years and most of my working 
+                life has been spent there — sales, designing, deliveries, partner relations, 
+                transitiong through the financial crisis, I have lived 
+                through a lot of up and downs. Nowadays I mostly help with admin, 
+                imports and the occasional delivery.
               </p>
             </div>
           </AnimatedSection>
