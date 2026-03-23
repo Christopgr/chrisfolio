@@ -10,8 +10,8 @@ const projects = [
     slug: "lacoste",
     brand: "Iconic French fashion-sport brand",
     description:
-      "Full e-commerce platform for Lacoste's Greek market. Built a high-performance storefront featuring their signature polos, sneakers, and accessories — with complex product catalog management, multi-category navigation, and optimized checkout flows.",
-    tags: ["E-Commerce", "React", ".NET 8", "MSSQL"],
+      "Built at SLEED on custom nopCommerce. Led the front-end and back-end development for Lacoste's Greek e-commerce — product catalog, multi-category navigation, checkout flows, and ERP integrations.",
+    tags: ["nopCommerce", ".NET", "E-Commerce", "MSSQL"],
     color: "#0a6640",
   },
   {
@@ -20,8 +20,8 @@ const projects = [
     slug: "bodytalk",
     brand: "Greek athletic fashion brand",
     description:
-      "E-commerce experience for Bodytalk's sportswear collections. Implemented dynamic product filtering, inventory management, conversion-optimized funnels, and integrations with analytics (GTM, Skroutz), payments (Simpler), and email marketing (Klaviyo).",
-    tags: ["E-Commerce", "React", ".NET 8", "Performance"],
+      "Built at SLEED on Bizweb, the custom e-commerce platform I helped build as one of the main engineers. Led front-end, back-end, and ERP integrations. Dynamic filtering, analytics (GTM, Skroutz), payments (Simpler), and email marketing (Klaviyo).",
+    tags: ["Bizweb", "React", ".NET 8", "ERP"],
     color: "#e11d48",
   },
   {
@@ -30,8 +30,8 @@ const projects = [
     slug: "politeianet",
     brand: "Greece's leading bookstore — 45 years of heritage",
     description:
-      "Online platform for Politeia, one of Greece's most established bookstores. Complex search across hundreds of thousands of titles, curated monthly selections, bestseller lists, and a rich editorial blog experience.",
-    tags: ["E-Commerce", "Search", ".NET", "MySQL"],
+      "Built at SLEED on Bizweb. Led front-end, back-end, and ERP integrations for one of Greece's most established bookstores. Complex search across hundreds of thousands of titles, curated selections, and editorial content.",
+    tags: ["Bizweb", "React", ".NET 8", "MySQL"],
     color: "#c27b1a",
   },
   {
@@ -40,8 +40,8 @@ const projects = [
     slug: "antetokounbros",
     brand: "The Antetokounmpo brothers' lifestyle brand",
     description:
-      'Official e-commerce store for the Antetokounmpo family\'s fashion label. Brand-focused design reflecting their "We are all bros" philosophy, with global shipping, multi-currency support, and premium collection drops.',
-    tags: ["E-Commerce", "React", ".NET 8", "Global"],
+      'Built at SLEED on custom nopCommerce. Developed the official e-commerce store for the Antetokounmpo family\'s brand — global shipping, multi-currency support, and premium collection drops.',
+    tags: ["nopCommerce", ".NET", "E-Commerce", "Global"],
     color: "#18181b",
   },
 ];
