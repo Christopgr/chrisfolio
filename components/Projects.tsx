@@ -99,7 +99,7 @@ export default function Projects() {
                     <source
                       type="image/webp"
                       srcSet={`/projects/${project.slug}-640w.webp 640w, /projects/${project.slug}-960w.webp 960w, /projects/${project.slug}-1280w.webp 1280w, /projects/${project.slug}-1920w.webp 1920w`}
-                      sizes="(max-width: 640px) 640px, (max-width: 960px) 960px, (max-width: 1280px) 1280px, 1920px"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1152px"
                     />
                     <img
                       src={`/projects/${project.slug}.webp`}
