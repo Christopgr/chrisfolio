@@ -38,7 +38,7 @@ export default function About() {
                 Before fintech, I spent nearly five years building e-commerce
                 platforms as one of the core developers at SLEED for brands 
                 like Lacoste, Politeia, and AntetokounBros — product catalogs, 
-                checkout flows, search engines, analaytics, payment and ERP integrations.
+                checkout flows, search engines, analytics, payment and ERP integrations.
               </p>
               <p>
                 I also own a family packaging business! My family has been in 
