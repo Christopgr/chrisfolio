@@ -24,18 +24,19 @@ const socials = [
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
+    const form = e.currentTarget;
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(new FormData(e.currentTarget))),
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
       if (res.ok) {
         setStatus("sent");
-        e.currentTarget.reset();
+        form.reset();
       } else {
         setStatus("error");
       }
