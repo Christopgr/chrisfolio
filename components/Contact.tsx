@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 
 const socials = [
@@ -21,6 +22,28 @@ const socials = [
 ];
 
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(e.currentTarget))),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section id="contact" className="py-32 relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
@@ -88,52 +111,59 @@ export default function Contact() {
               <p className="text-xs font-mono text-gold-dim tracking-wider uppercase mb-6">
                 Quick message
               </p>
-              <form
-                action="https://api.web3forms.com/submit"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="hidden"
-                  name="access_key"
-                  value="f012fcb2-f65d-49a6-8ff9-99b9901a4d5e"
-                />
-                <input type="hidden" name="subject" value="New message from christopalis.com" />
-                <input type="checkbox" name="botcheck" className="hidden" />
-                <div>
+              {status === "sent" ? (
+                <div className="text-center py-8">
+                  <p className="text-text font-medium mb-1">Message sent!</p>
+                  <p className="text-subtle text-sm">Thanks for reaching out. I&apos;ll get back to you soon.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <input
-                    type="text"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                    className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
+                    type="hidden"
+                    name="access_key"
+                    value="f012fcb2-f65d-49a6-8ff9-99b9901a4d5e"
                   />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your email"
-                    required
-                    className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
-                  />
-                </div>
-                <div>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    placeholder="Your message..."
-                    required
-                    className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="px-6 py-3 rounded-full bg-accent text-white text-sm font-medium hover:bg-accent-dim transition-colors duration-200 w-full"
-                >
-                  Send Message
-                </button>
-              </form>
+                  <input type="hidden" name="subject" value="New message from christopalis.com" />
+                  <input type="checkbox" name="botcheck" className="hidden" />
+                  <div>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Your name"
+                      required
+                      className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Your email"
+                      required
+                      className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <textarea
+                      name="message"
+                      rows={4}
+                      placeholder="Your message..."
+                      required
+                      className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors resize-none"
+                    />
+                  </div>
+                  {status === "error" && (
+                    <p className="text-accent text-sm">Something went wrong. Try again or email me directly.</p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={status === "sending"}
+                    className="px-6 py-3 rounded-full bg-accent text-white text-sm font-medium hover:bg-accent-dim transition-colors duration-200 w-full disabled:opacity-60"
+                  >
+                    {status === "sending" ? "Sending..." : "Send Message"}
+                  </button>
+                </form>
+              )}
             </div>
           </AnimatedSection>
         </div>
