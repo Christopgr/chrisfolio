@@ -44,8 +44,8 @@ export default function About() {
                 I also own a family packaging business! My family has been in 
                 the packaging sector for over 25 years and most of my working 
                 life has been spent there — sales, designing, deliveries, partner relations, 
-                transitiong through the financial crisis, I have lived 
-                through a lot of up and downs. Nowadays I mostly help with admin, 
+                transitioning through the financial crisis, I have lived
+                through a lot of ups and downs. Nowadays I mostly help with admin, 
                 imports and the occasional delivery.
               </p>
             </div>
