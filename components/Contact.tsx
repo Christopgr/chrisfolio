@@ -89,23 +89,41 @@ export default function Contact() {
                 Quick message
               </p>
               <form
-                action={`mailto:ctopalis@gmail.com`}
-                method="GET"
+                action="https://api.web3forms.com/submit"
+                method="POST"
                 className="space-y-4"
               >
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="f012fcb2-f65d-49a6-8ff9-99b9901a4d5e"
+                />
+                <input type="hidden" name="subject" value="New message from christopalis.com" />
+                <input type="checkbox" name="botcheck" className="hidden" />
                 <div>
                   <input
                     type="text"
-                    name="subject"
-                    placeholder="Subject"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your email"
+                    required
                     className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
                   />
                 </div>
                 <div>
                   <textarea
-                    name="body"
+                    name="message"
                     rows={4}
                     placeholder="Your message..."
+                    required
                     className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors resize-none"
                   />
                 </div>
