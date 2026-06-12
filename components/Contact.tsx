@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
+import SectionHeading from "./SectionHeading";
 
 const socials = [
   {
@@ -46,50 +47,37 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-32 relative">
+    <section id="contact" className="py-28 sm:py-40 relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6">
-        <AnimatedSection>
-          <div className="flex items-center gap-4 mb-16">
-            <span className="text-xs font-mono text-gold tracking-wider uppercase">
-              04
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-light tracking-tight">
-              Get in{" "}
-              <span className="font-display italic text-accent-light">
-                Touch
-              </span>
-            </h2>
-            <div className="flex-1 h-px bg-border" />
-          </div>
-        </AnimatedSection>
+        <SectionHeading number="04" label="Contact" title="Say hi." />
 
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
           <AnimatedSection delay={0.1}>
-            <div className="space-y-6">
-              <p className="text-subtle leading-relaxed max-w-md">
-                There is low availability for new projects, but I am always open to a good
-                conversation. Feel free to reach out.
+            <div className="space-y-10">
+              <p className="text-subtle text-lg leading-relaxed max-w-md">
+                Always open to a good conversation — about engineering,
+                e-commerce, fintech, or packaging. Reach out.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-1">
                 {socials.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-4 py-3 border-b border-border hover:border-muted transition-colors"
+                    className="group flex items-center gap-4 py-4 border-b border-border hover:border-accent/40 transition-colors"
                   >
-                    <span className="text-xs font-mono text-muted w-20">
+                    <span className="text-xs font-mono text-muted w-20 uppercase tracking-wider">
                       {social.label}
                     </span>
-                    <span className="text-text group-hover:text-accent-light transition-colors">
+                    <span className="text-lg text-text group-hover:text-accent transition-colors">
                       {social.value}
                     </span>
                     <svg
-                      className="w-3.5 h-3.5 ml-auto text-muted group-hover:text-accent-light group-hover:translate-x-0.5 transition-all"
+                      className="w-4 h-4 ml-auto text-muted group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -108,13 +96,15 @@ export default function Contact() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="p-8 rounded-2xl bg-surface border border-border glow">
+            <div className="p-8 sm:p-10 rounded-2xl bg-surface border border-border glow">
               <p className="text-xs font-mono text-gold-dim tracking-wider uppercase mb-6">
                 Quick message
               </p>
               {status === "sent" ? (
                 <div className="text-center py-8">
-                  <p className="text-text font-medium mb-1">Message sent!</p>
+                  <p className="font-display italic text-2xl text-text mb-2">
+                    Message sent!
+                  </p>
                   <p className="text-subtle text-sm">Thanks for reaching out. I&apos;ll get back to you soon.</p>
                 </div>
               ) : (
@@ -132,7 +122,7 @@ export default function Contact() {
                       name="name"
                       placeholder="Your name"
                       required
-                      className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
+                      className="w-full bg-bg border border-border rounded-lg px-4 py-3.5 text-base text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
                     />
                   </div>
                   <div>
@@ -141,16 +131,16 @@ export default function Contact() {
                       name="email"
                       placeholder="Your email"
                       required
-                      className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
+                      className="w-full bg-bg border border-border rounded-lg px-4 py-3.5 text-base text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
                     />
                   </div>
                   <div>
                     <textarea
                       name="message"
-                      rows={4}
+                      rows={5}
                       placeholder="Your message..."
                       required
-                      className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors resize-none"
+                      className="w-full bg-bg border border-border rounded-lg px-4 py-3.5 text-base text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors resize-none"
                     />
                   </div>
                   {status === "error" && (
@@ -159,7 +149,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="px-6 py-3 rounded-full bg-accent text-white text-sm font-medium hover:bg-accent-dim transition-colors duration-200 w-full disabled:opacity-60"
+                    className="px-6 py-3.5 rounded-full bg-accent text-white text-sm font-medium hover:bg-accent-dim transition-colors duration-200 w-full disabled:opacity-60"
                   >
                     {status === "sending" ? "Sending..." : "Send Message"}
                   </button>

@@ -1,5 +1,23 @@
 import type { Metadata } from "next";
+import { Inter, Instrument_Serif, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-instrument-serif",
+});
+
+const bodoniModa = Bodoni_Moda({
+  subsets: ["latin"],
+  variable: "--font-bodoni-moda",
+});
 
 const SITE_URL = "https://christopalis.com";
 
@@ -72,7 +90,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html
+      lang="en"
+      className={`h-full antialiased ${inter.variable} ${instrumentSerif.variable} ${bodoniModa.variable}`}
+    >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

@@ -1,12 +1,14 @@
 "use client";
 
 import AnimatedSection from "./AnimatedSection";
+import SectionHeading from "./SectionHeading";
 
 const experiences = [
   {
     role: "Software Engineer",
     company: "Wealthyhood",
     period: "Feb 2025 — Present",
+    year: "Now",
     description:
       "Working across the full stack on an investment platform — TypeScript, React, MongoDB. Shipping features used by thousands of investors daily.",
     current: true,
@@ -15,6 +17,7 @@ const experiences = [
     role: "Software Engineer",
     company: "SLEED",
     period: "May 2021 — Jan 2025",
+    year: "2021",
     description:
       "One of the core developers of Bizweb, a custom e-commerce platform built with .NET 8 and React. Shipped storefronts for Lacoste, Bodytalk, Politeia, and AntetokounBros.",
     current: false,
@@ -23,6 +26,7 @@ const experiences = [
     role: ".NET Developer",
     company: "ED EXTEND P.C.",
     period: "May 2020 — May 2021",
+    year: "2020",
     description:
       "Developed high-performance e-commerce sites using nopCommerce (.NET 6) with custom MSSQL/MySQL integrations.",
     current: false,
@@ -31,6 +35,7 @@ const experiences = [
     role: "Android Developer",
     company: 'NCSR "DEMOKRITOS"',
     period: "Mar 2018 — Jun 2018",
+    year: "2018",
     description:
       "University placement working on the iWelli health platform. Integrated medical IoT devices via BLE API.",
     current: false,
@@ -39,64 +44,52 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 relative">
+    <section id="experience" className="py-28 sm:py-40 relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6">
-        <AnimatedSection>
-          <div className="flex items-center gap-4 mb-16">
-            <span className="text-xs font-mono text-gold tracking-wider uppercase">
-              03
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-light tracking-tight">
-              Work{" "}
-              <span className="font-display italic text-accent-light">
-                Experience
-              </span>
-            </h2>
-            <div className="flex-1 h-px bg-border" />
-          </div>
-        </AnimatedSection>
+        <SectionHeading number="03" label="Career" title="Where I've been." />
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border hidden sm:block" />
-
-          <div className="space-y-12">
-            {experiences.map((exp, i) => (
-              <AnimatedSection key={exp.company} delay={i * 0.1}>
-                <div className="flex gap-8">
-                  {/* Timeline dot */}
-                  <div className="hidden sm:flex flex-col items-center pt-2">
-                    <div
-                      className={`w-[15px] h-[15px] rounded-full border-2 ${
-                        exp.current
-                          ? "border-accent bg-accent/20"
-                          : "border-border bg-bg"
-                      }`}
-                    />
-                  </div>
-
-                  <div className="flex-1 space-y-2">
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-                      <h3 className="text-lg font-medium text-text">
-                        {exp.role}
-                      </h3>
-                      <span className="text-accent-light text-sm">
-                        @ {exp.company}
-                      </span>
-                    </div>
-                    <p className="text-xs font-mono text-muted">
-                      {exp.period}
-                    </p>
-                    <p className="text-subtle text-sm leading-relaxed max-w-xl">
-                      {exp.description}
-                    </p>
-                  </div>
+        <div className="border-t border-border">
+          {experiences.map((exp, i) => (
+            <AnimatedSection key={exp.company} delay={i * 0.08}>
+              <div className="group grid sm:grid-cols-12 gap-4 sm:gap-8 items-baseline py-10 sm:py-14 border-b border-border transition-colors duration-500 hover:bg-surface/60 sm:px-6 sm:-mx-6">
+                {/* Oversized year */}
+                <div className="sm:col-span-3">
+                  <span
+                    className={`font-display italic text-[clamp(2.5rem,5vw,4rem)] leading-none ${
+                      exp.current ? "text-accent" : "text-border"
+                    } group-hover:text-accent/70 transition-colors duration-500`}
+                  >
+                    {exp.year}
+                  </span>
                 </div>
-              </AnimatedSection>
-            ))}
-          </div>
+
+                <div className="sm:col-span-9 space-y-3">
+                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                    <h3 className="text-2xl sm:text-3xl font-light tracking-tight text-text">
+                      {exp.role}
+                    </h3>
+                    <span className="font-display italic text-xl sm:text-2xl text-accent">
+                      {exp.company}
+                    </span>
+                    {exp.current && (
+                      <span className="inline-flex items-center gap-1.5 text-xs text-gold-dim">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+                        Current
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs font-mono text-muted tracking-wide">
+                    {exp.period}
+                  </p>
+                  <p className="text-subtle text-base leading-relaxed max-w-2xl">
+                    {exp.description}
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
         </div>
       </div>
     </section>

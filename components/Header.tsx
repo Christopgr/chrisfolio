@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -11,6 +11,32 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.getElementById(link.href.slice(1)))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const visible = new Set<string>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            visible.add(entry.target.id);
+          } else {
+            visible.delete(entry.target.id);
+          }
+        }
+        const [first] = visible;
+        setActiveSection(first ? `#${first}` : null);
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="relative z-40">
@@ -22,11 +48,19 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="group relative text-[15px] leading-tight text-text inline-flex"
+                className={`group relative text-[15px] leading-tight inline-flex transition-colors duration-300 ${
+                  activeSection === link.href ? "text-accent" : "text-text"
+                }`}
               >
                 <span className="relative">
                   {link.label}
-                  <span className="absolute left-0 -bottom-px w-full h-px bg-text origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+                  <span
+                    className={`absolute left-0 -bottom-px w-full h-px origin-left transition-transform duration-300 ease-out ${
+                      activeSection === link.href
+                        ? "bg-accent scale-x-100"
+                        : "bg-text scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
                 </span>
               </a>
             ))}
