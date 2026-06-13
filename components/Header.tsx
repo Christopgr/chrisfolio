@@ -39,8 +39,8 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="relative z-40">
-      <div className="px-5 sm:px-14 pt-3 sm:pt-5">
+    <header className="absolute top-0 inset-x-0 z-50">
+      <div className="px-5 sm:px-14 pt-4 sm:pt-6">
         <div className="hidden md:grid grid-cols-3 items-center">
           {/* Left: nav links stacked vertically */}
           <div className="flex flex-col items-start gap-1.5">
@@ -49,7 +49,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`group relative font-mono text-xs uppercase tracking-[0.2em] leading-tight inline-flex transition-colors duration-300 ${
-                  activeSection === link.href ? "text-accent" : "text-text"
+                  activeSection === link.href ? "text-accent" : "text-white"
                 }`}
               >
                 <span className="relative">
@@ -58,7 +58,7 @@ export default function Header() {
                     className={`absolute left-0 -bottom-px w-full h-px origin-left transition-transform duration-300 ease-out ${
                       activeSection === link.href
                         ? "bg-accent scale-x-100"
-                        : "bg-text scale-x-0 group-hover:scale-x-100"
+                        : "bg-white scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
                 </span>
@@ -69,40 +69,22 @@ export default function Header() {
           {/* Center: wordmark */}
           <a
             href="#"
-            className="font-mono text-sm uppercase tracking-[0.35em] text-text hover:text-accent transition-colors justify-self-center whitespace-nowrap"
+            className="font-mono text-sm uppercase tracking-[0.35em] text-white hover:text-accent transition-colors justify-self-center whitespace-nowrap"
           >
             Chris Topalis
           </a>
 
-          {/* Right: CTA button */}
-          <div className="flex items-center justify-end">
-            <a
-              href="#contact"
-              className="group relative inline-flex items-center gap-2 px-5 py-2.5 bg-text text-bg text-sm font-medium overflow-hidden transition-colors duration-300 hover:bg-accent"
-            >
-              <span className="relative z-10">Let&apos;s Connect</span>
-              <svg
-                className="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                />
-              </svg>
-            </a>
-          </div>
+          {/* Right: spacer to keep the wordmark centred */}
+          <div aria-hidden="true" />
         </div>
 
         {/* Mobile header */}
         <div className="flex md:hidden items-center justify-between">
           <a
             href="#"
-            className="font-mono text-sm uppercase tracking-[0.3em] text-text"
+            className={`font-mono text-sm uppercase tracking-[0.3em] ${
+              menuOpen ? "text-text" : "text-white"
+            }`}
           >
             Chris Topalis
           </a>
@@ -112,18 +94,18 @@ export default function Header() {
             aria-label="Toggle menu"
           >
             <span
-              className={`block w-5 h-[1.5px] bg-text transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-[4.5px]" : ""
+              className={`block w-5 h-[1.5px] transition-all duration-300 ${
+                menuOpen ? "bg-text rotate-45 translate-y-[4.5px]" : "bg-white"
               }`}
             />
             <span
-              className={`block w-5 h-[1.5px] bg-text transition-all duration-300 ${
-                menuOpen ? "opacity-0" : ""
+              className={`block w-5 h-[1.5px] transition-all duration-300 ${
+                menuOpen ? "bg-text opacity-0" : "bg-white"
               }`}
             />
             <span
-              className={`block w-5 h-[1.5px] bg-text transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-[4.5px]" : ""
+              className={`block w-5 h-[1.5px] transition-all duration-300 ${
+                menuOpen ? "bg-text -rotate-45 -translate-y-[4.5px]" : "bg-white"
               }`}
             />
           </button>
@@ -160,9 +142,9 @@ export default function Header() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.3 }}
-                className="mt-4 px-6 py-3 bg-text text-bg text-sm font-medium"
+                className="font-display italic text-4xl text-accent"
               >
-                Let&apos;s Connect
+                Say hi
               </motion.a>
             </nav>
           </motion.div>

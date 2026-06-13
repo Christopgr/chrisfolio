@@ -32,7 +32,7 @@ export default function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative min-h-[calc(100svh-72px)] sm:min-h-[calc(100svh-96px)] overflow-hidden flex flex-col">
+    <section className="relative min-h-[100svh] overflow-hidden flex flex-col">
       {/* Full-bleed B&W backdrop */}
       <picture>
         <source
@@ -54,7 +54,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-between max-w-[100rem] w-full mx-auto px-6 sm:px-14 py-8 sm:py-10 text-white">
+      <div className="relative z-10 flex-1 flex flex-col justify-between max-w-[100rem] w-full mx-auto px-6 sm:px-14 pt-28 sm:pt-32 pb-8 sm:pb-10 text-white">
         {/* Top meta */}
         <motion.div
           initial={{ opacity: 0 }}
