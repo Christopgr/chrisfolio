@@ -12,6 +12,23 @@ const navLinks = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    // Flip to dark chrome exactly when the hero (first section) leaves the
+    // header band, so the bone bar never appears over the photo.
+    const hero = document.querySelector("main section");
+    if (!hero) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { rootMargin: "-72px 0px 0px 0px", threshold: 0 }
+    );
+    io.observe(hero);
+    return () => io.disconnect();
+  }, []);
+
+  // Dark chrome when scrolled past the hero (or when the mobile menu is open).
+  const darkChrome = scrolled;
 
   useEffect(() => {
     const sections = navLinks
@@ -39,8 +56,18 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="absolute top-0 inset-x-0 z-50">
-      <div className="px-5 sm:px-14 pt-4 sm:pt-6">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-500 ${
+        darkChrome
+          ? "bg-bg/85 backdrop-blur-md border-b border-border"
+          : "bg-transparent"
+      }`}
+    >
+      <div
+        className={`px-5 sm:px-14 transition-all duration-500 ${
+          darkChrome ? "py-3" : "pt-4 sm:pt-6 pb-2"
+        }`}
+      >
         <div className="hidden md:grid grid-cols-3 items-center">
           {/* Left: nav links stacked vertically */}
           <div className="flex flex-col items-start gap-1.5">
@@ -49,7 +76,11 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`group relative font-mono text-xs uppercase tracking-[0.2em] leading-tight inline-flex transition-colors duration-300 ${
-                  activeSection === link.href ? "text-accent" : "text-white"
+                  activeSection === link.href
+                    ? "text-accent"
+                    : darkChrome
+                      ? "text-text"
+                      : "text-white"
                 }`}
               >
                 <span className="relative">
@@ -58,7 +89,7 @@ export default function Header() {
                     className={`absolute left-0 -bottom-px w-full h-px origin-left transition-transform duration-300 ease-out ${
                       activeSection === link.href
                         ? "bg-accent scale-x-100"
-                        : "bg-white scale-x-0 group-hover:scale-x-100"
+                        : `${darkChrome ? "bg-text" : "bg-white"} scale-x-0 group-hover:scale-x-100`
                     }`}
                   />
                 </span>
@@ -69,7 +100,9 @@ export default function Header() {
           {/* Center: wordmark */}
           <a
             href="#"
-            className="font-mono text-sm uppercase tracking-[0.35em] text-white hover:text-accent transition-colors justify-self-center whitespace-nowrap"
+            className={`font-mono text-sm uppercase tracking-[0.35em] hover:text-accent transition-colors justify-self-center whitespace-nowrap ${
+              darkChrome ? "text-text" : "text-white"
+            }`}
           >
             Chris Topalis
           </a>
@@ -83,7 +116,7 @@ export default function Header() {
           <a
             href="#"
             className={`font-mono text-sm uppercase tracking-[0.3em] ${
-              menuOpen ? "text-text" : "text-white"
+              menuOpen || darkChrome ? "text-text" : "text-white"
             }`}
           >
             Chris Topalis
@@ -95,17 +128,25 @@ export default function Header() {
           >
             <span
               className={`block w-5 h-[1.5px] transition-all duration-300 ${
-                menuOpen ? "bg-text rotate-45 translate-y-[4.5px]" : "bg-white"
+                menuOpen
+                  ? "bg-text rotate-45 translate-y-[4.5px]"
+                  : darkChrome
+                    ? "bg-text"
+                    : "bg-white"
               }`}
             />
             <span
               className={`block w-5 h-[1.5px] transition-all duration-300 ${
-                menuOpen ? "bg-text opacity-0" : "bg-white"
+                menuOpen ? "bg-text opacity-0" : darkChrome ? "bg-text" : "bg-white"
               }`}
             />
             <span
               className={`block w-5 h-[1.5px] transition-all duration-300 ${
-                menuOpen ? "bg-text -rotate-45 -translate-y-[4.5px]" : "bg-white"
+                menuOpen
+                  ? "bg-text -rotate-45 -translate-y-[4.5px]"
+                  : darkChrome
+                    ? "bg-text"
+                    : "bg-white"
               }`}
             />
           </button>

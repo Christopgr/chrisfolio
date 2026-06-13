@@ -26,6 +26,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Anchored sections clear the fixed header */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

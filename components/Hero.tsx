@@ -54,13 +54,13 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-between max-w-[100rem] w-full mx-auto px-6 sm:px-14 pt-28 sm:pt-32 pb-8 sm:pb-10 text-white">
+      <div className="relative z-10 flex-1 flex flex-col justify-between max-w-[100rem] w-full mx-auto px-6 sm:px-14 pt-32 sm:pt-36 pb-8 sm:pb-10 text-white">
         {/* Top meta */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="flex items-center justify-between font-mono text-[11px] sm:text-xs uppercase tracking-[0.25em] text-white/70"
+          className="flex items-center justify-between font-mono text-[11px] sm:text-xs uppercase tracking-[0.25em] text-white/80 [text-shadow:0_1px_16px_rgba(0,0,0,0.5)]"
         >
           <span>Selected Works — Software Engineer</span>
           <span className="hidden sm:inline">Athens, GR · 2018—2025</span>
