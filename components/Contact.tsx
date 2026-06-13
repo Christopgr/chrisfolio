@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import AnimatedSection from "./AnimatedSection";
+import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 const socials = [
@@ -48,13 +48,11 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-28 sm:py-40 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
-
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeading number="04" label="Contact" title="Say hi." />
+        <SectionHeading number="04" label="Contact" title="Let's build something." />
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          <AnimatedSection delay={0.1}>
+          <Reveal delay={0.1}>
             <div className="space-y-10">
               <p className="text-subtle text-lg leading-relaxed max-w-md">
                 Always open to a good conversation — about engineering,
@@ -70,7 +68,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="group flex items-center gap-4 py-4 border-b border-border hover:border-accent/40 transition-colors"
                   >
-                    <span className="text-xs font-mono text-muted w-20 uppercase tracking-wider">
+                    <span className="font-mono text-xs text-muted w-20 uppercase tracking-[0.2em]">
                       {social.label}
                     </span>
                     <span className="text-lg text-text group-hover:text-accent transition-colors">
@@ -93,11 +91,11 @@ export default function Contact() {
                 ))}
               </div>
             </div>
-          </AnimatedSection>
+          </Reveal>
 
-          <AnimatedSection delay={0.2}>
-            <div className="p-8 sm:p-10 rounded-2xl bg-surface border border-border glow">
-              <p className="text-xs font-mono text-gold-dim tracking-wider uppercase mb-6">
+          <Reveal delay={0.2}>
+            <div className="p-8 sm:p-10 grain-card border border-border">
+              <p className="font-mono text-xs text-muted tracking-[0.2em] uppercase mb-6">
                 Quick message
               </p>
               {status === "sent" ? (
@@ -156,7 +154,7 @@ export default function Contact() {
                 </form>
               )}
             </div>
-          </AnimatedSection>
+          </Reveal>
         </div>
       </div>
     </section>

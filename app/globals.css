@@ -1,36 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #f3eeed;
+  --color-bg: #f4f1ec;
   --color-surface: #ffffff;
   --color-border: #d9d0ce;
   --color-muted: #6e6260;
-  --color-text: #1a1a1a;
+  --color-text: #141414;
   --color-subtle: #5c504e;
   --color-accent: #b8332e;
   --color-accent-dim: #9a2b27;
   --color-accent-light: #c94a45;
-  --color-gold: #7d6610;
-  --color-gold-dim: #7d6610;
 
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
   --font-display: var(--font-instrument-serif), Georgia, serif;
-  --font-logo: var(--font-bodoni-moda), Georgia, serif;
-
-  --animate-fade-up: fadeUp 0.6s ease forwards;
-  --animate-fade-in: fadeIn 0.5s ease forwards;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(24px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
 }
 
 * {
@@ -58,10 +43,10 @@ body {
 
 ::selection {
   background-color: #b8332e22;
-  color: #1a1a1a;
+  color: #141414;
 }
 
-/* Subtle noise texture */
+/* Subtle paper grain — static, never animated */
 body::after {
   content: "";
   position: fixed;
@@ -72,31 +57,41 @@ body::after {
   opacity: 0.4;
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #1a1a1a 0%, #6e6360 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Editions-grotesque display: heavy uppercase Archivo, tight */
+.display {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 0.86;
 }
 
-.accent-gradient {
-  background: linear-gradient(135deg, #c94a45 0%, #b8332e 60%, #9a2b27 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Crimson highlight block behind a word (multi-line safe) */
+.crimson-block {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
-/* Outlined display type — fills on hover */
+/* Procedural paper grain (original — no external asset) */
+.grain-dark {
+  background-color: #1f1c19;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.16'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+.grain-card {
+  background-color: #efe9df;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.10'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Outlined display type — fills on hover (catalogue rows) */
 .text-outline {
   -webkit-text-stroke: 1.5px var(--color-text);
   color: transparent;
-  transition: color 0.4s var(--ease-out-expo), -webkit-text-stroke-color 0.4s var(--ease-out-expo);
-}
-
-.text-outline-accent {
-  -webkit-text-stroke: 1.5px var(--color-accent);
-  color: transparent;
-  transition: color 0.4s var(--ease-out-expo), -webkit-text-stroke-color 0.4s var(--ease-out-expo);
+  transition: color 0.4s var(--ease-out-expo),
+    -webkit-text-stroke-color 0.4s var(--ease-out-expo);
 }
 
 .index-row:hover .text-outline,
@@ -105,49 +100,39 @@ body::after {
   -webkit-text-stroke-color: var(--color-accent);
 }
 
-/* Duotone art treatment for screenshots — color returns on hover */
+/* White outline for dark panels */
+.text-outline-light {
+  -webkit-text-stroke: 1.5px #f1ece4;
+  color: transparent;
+  transition: color 0.4s var(--ease-out-expo),
+    -webkit-text-stroke-color 0.4s var(--ease-out-expo);
+}
+.index-row:hover .text-outline-light,
+.index-row:focus-visible .text-outline-light {
+  color: var(--color-accent);
+  -webkit-text-stroke-color: var(--color-accent);
+}
+
+/* Duotone art treatment — also the WebGLImage fallback. Color returns on hover. */
 .duotone {
-  filter: grayscale(1) contrast(1.06) brightness(1.04) sepia(0.18);
+  filter: grayscale(1) contrast(1.05) brightness(1.03);
   transition: filter 0.6s var(--ease-out-expo);
 }
 
 .group:hover .duotone,
 .duotone-hover-color:hover .duotone {
-  filter: grayscale(0) contrast(1) brightness(1) sepia(0);
+  filter: grayscale(0) contrast(1) brightness(1);
 }
 
-/* Infinite marquee */
-@keyframes marquee {
-  to { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee var(--marquee-duration, 40s) linear infinite;
-}
-
-.marquee-paused:hover .animate-marquee {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
-}
-
-/* Oversized ghosted section numerals */
+/* Oversized ghosted catalogue numerals — ink outline, not gold */
 .ghost-numeral {
   font-family: var(--font-display);
   font-style: italic;
   line-height: 0.8;
   color: transparent;
-  -webkit-text-stroke: 1px color-mix(in srgb, var(--color-gold) 28%, transparent);
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--color-text) 16%, transparent);
   user-select: none;
   pointer-events: none;
-}
-
-.glow {
-  box-shadow: 0 0 80px rgba(184, 51, 46, 0.06);
 }
 
 /* Custom scrollbar */

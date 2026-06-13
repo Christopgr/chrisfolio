@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedSection from "./AnimatedSection";
+import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 const experiences = [
@@ -45,21 +45,19 @@ const experiences = [
 export default function Experience() {
   return (
     <section id="experience" className="py-28 sm:py-40 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
-
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeading number="03" label="Career" title="Where I've been." />
+        <SectionHeading number="03" label="Career" title="Provenance." />
 
         <div className="border-t border-border">
           {experiences.map((exp, i) => (
-            <AnimatedSection key={exp.company} delay={i * 0.08}>
+            <Reveal key={exp.company} delay={i * 0.08}>
               <div className="group grid sm:grid-cols-12 gap-4 sm:gap-8 items-baseline py-10 sm:py-14 border-b border-border transition-colors duration-500 hover:bg-surface/60 sm:px-6 sm:-mx-6">
                 {/* Oversized year */}
                 <div className="sm:col-span-3">
                   <span
                     className={`font-display italic text-[clamp(2.5rem,5vw,4rem)] leading-none ${
                       exp.current ? "text-accent" : "text-border"
-                    } group-hover:text-accent/70 transition-colors duration-500`}
+                    } group-hover:text-text transition-colors duration-500`}
                   >
                     {exp.year}
                   </span>
@@ -67,15 +65,15 @@ export default function Experience() {
 
                 <div className="sm:col-span-9 space-y-3">
                   <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                    <h3 className="text-2xl sm:text-3xl font-light tracking-tight text-text">
+                    <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-text">
                       {exp.role}
                     </h3>
                     <span className="font-display italic text-xl sm:text-2xl text-accent">
                       {exp.company}
                     </span>
                     {exp.current && (
-                      <span className="inline-flex items-center gap-1.5 text-xs text-gold-dim">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+                      <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                         Current
                       </span>
                     )}
@@ -88,7 +86,7 @@ export default function Experience() {
                   </p>
                 </div>
               </div>
-            </AnimatedSection>
+            </Reveal>
           ))}
         </div>
       </div>

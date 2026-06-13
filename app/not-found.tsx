@@ -7,7 +7,7 @@ export default function NotFound() {
         404
       </span>
       <div className="relative">
-        <p className="text-xs font-mono text-gold tracking-[0.25em] uppercase mb-6">
+        <p className="text-xs font-mono text-muted tracking-[0.25em] uppercase mb-6">
           Page not found — χάθηκες;
         </p>
         <h1 className="font-display italic text-[clamp(2.5rem,8vw,6rem)] leading-[0.95] tracking-tight mb-10">
@@ -17,7 +17,7 @@ export default function NotFound() {
         </h1>
         <Link
           href="/"
-          className="inline-block px-8 py-4 rounded-full bg-accent text-white text-sm font-medium hover:bg-accent-dim transition-colors duration-200"
+          className="inline-block px-8 py-4 bg-text text-bg text-sm font-medium hover:bg-accent transition-colors duration-200"
         >
           Take me home
         </Link>

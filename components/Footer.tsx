@@ -1,55 +1,38 @@
-const marqueeItems = Array.from({ length: 6 });
-
 export default function Footer() {
   return (
     <footer>
-      {/* Giant marquee CTA */}
+      {/* Closing statement — dark textured breather, white-outlined type */}
       <a
         href="mailto:ctopalis@gmail.com"
-        className="marquee-paused index-row group block overflow-hidden border-t border-border py-10 sm:py-14"
+        className="index-row group block grain-dark py-20 sm:py-32"
         aria-label="Email Chris Topalis"
       >
-        <div
-          className="flex w-max animate-marquee"
-          style={{ "--marquee-duration": "28s" } as React.CSSProperties}
-        >
-          {marqueeItems.map((_, i) => (
-            <span
-              key={i}
-              className="flex items-baseline shrink-0 px-6 sm:px-10"
-            >
-              <span className="text-outline font-display italic text-[clamp(3rem,8vw,7rem)] leading-none whitespace-nowrap">
-                Let&apos;s build something
-              </span>
-              <span className="font-display text-[clamp(3rem,8vw,7rem)] leading-none text-accent ml-6 sm:ml-10">
-                —
-              </span>
-            </span>
-          ))}
+        <div className="max-w-6xl mx-auto px-6">
+          <span className="text-outline-light display text-[clamp(2.75rem,11vw,9rem)] block">
+            Let&apos;s build
+            <br />
+            something
+            <span className="text-accent"> ↗</span>
+          </span>
         </div>
       </a>
 
-      {/* Bottom bar */}
+      {/* Colophon */}
       <div className="py-10 border-t border-border">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+          <p>
             Athens, Greece —{" "}
-            <span className="font-display italic text-gold-dim text-sm">
+            <span className="font-display italic normal-case tracking-normal text-sm text-accent">
               Αθήνα
-            </span>{" "}
-            <span className="font-display italic text-accent text-sm">
-              &lt;3
             </span>
           </p>
-          <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} Chris Topalis. All rights reserved.
-          </p>
+          <p>&copy; {new Date().getFullYear()} Chris Topalis</p>
           <div className="flex gap-6">
             <a
               href="https://www.linkedin.com/in/christopgr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-text transition-colors"
+              className="hover:text-accent transition-colors"
               aria-label="LinkedIn"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -58,7 +41,7 @@ export default function Footer() {
             </a>
             <a
               href="mailto:ctopalis@gmail.com"
-              className="text-muted hover:text-text transition-colors"
+              className="hover:text-accent transition-colors"
               aria-label="Email"
             >
               <svg

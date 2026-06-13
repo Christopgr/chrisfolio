@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedSection from "./AnimatedSection";
+import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 const skills = [
@@ -14,29 +14,36 @@ export default function About() {
   return (
     <section id="about" className="py-28 sm:py-40 relative">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeading number="01" label="About" title="The story so far." />
+        <SectionHeading number="02" label="About" title="The artist." />
 
         <div className="grid md:grid-cols-12 gap-12 lg:gap-16 mb-20">
-          {/* Portrait — swap the monogram block for a real photo when ready */}
-          <AnimatedSection delay={0.1} className="md:col-span-4">
-            <div className="relative aspect-[3/4] rounded-xl bg-surface border border-border overflow-hidden glow">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-logo text-[7rem] text-accent/80 select-none">
-                  ΧΤ
-                </span>
-              </div>
-              <div className="absolute bottom-0 inset-x-0 border-t border-border bg-bg/80 backdrop-blur-sm px-5 py-3 flex items-center justify-between">
-                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-muted">
+          {/* Portrait — cropped above the cup, kept in colour (crimson light = the accent) */}
+          <Reveal delay={0.1} className="md:col-span-4">
+            <div className="relative aspect-[4/5] border border-border overflow-hidden">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/portrait-800.webp 800w, /portrait-1200.webp 1200w"
+                  sizes="(max-width: 768px) 100vw, 380px"
+                />
+                <img
+                  src="/portrait-1200.webp"
+                  alt="Chris Topalis, lit in red on an Athens rooftop at night"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                />
+              </picture>
+              <div className="absolute bottom-0 inset-x-0 border-t border-white/20 bg-black/40 backdrop-blur-sm px-5 py-3 flex items-center justify-between text-white">
+                <span className="text-[11px] font-mono uppercase tracking-[0.2em]">
                   Athens, GR
                 </span>
-                <span className="font-display italic text-sm text-gold-dim">
-                  Αθήνα
-                </span>
+                <span className="font-display italic text-sm">Αθήνα</span>
               </div>
             </div>
-          </AnimatedSection>
+          </Reveal>
 
-          <AnimatedSection delay={0.2} className="md:col-span-8">
+          <Reveal delay={0.2} className="md:col-span-8">
             <div className="space-y-8">
               <p className="text-2xl sm:text-[2rem] font-light leading-snug tracking-tight text-text">
                 Software engineer based in Athens, Greece — working at{" "}
@@ -53,8 +60,8 @@ export default function About() {
                 checkout flows, search engines, analytics, payment and ERP
                 integrations.
               </p>
-              <div className="border-l-2 border-accent/30 pl-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-gold-dim font-medium mb-3">
+              <div className="border-l-2 border-accent/40 pl-6">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-3">
                   Beyond code
                 </p>
                 <p className="text-subtle text-lg leading-relaxed">
@@ -68,14 +75,14 @@ export default function About() {
                 </p>
               </div>
             </div>
-          </AnimatedSection>
+          </Reveal>
         </div>
 
-        <AnimatedSection delay={0.1}>
+        <Reveal delay={0.1}>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 border-t border-border pt-12">
             {skills.map((skill) => (
               <div key={skill.category} className="space-y-4">
-                <h3 className="text-xs font-mono text-gold-dim tracking-wider uppercase">
+                <h3 className="font-mono text-xs text-muted tracking-wider uppercase">
                   {skill.category}
                 </h3>
                 <ul className="space-y-2.5">
@@ -84,7 +91,7 @@ export default function About() {
                       key={item}
                       className="text-base text-subtle flex items-center gap-3"
                     >
-                      <span className="w-1 h-1 rounded-full bg-gold/60" />
+                      <span className="w-1 h-1 rounded-full bg-accent/60" />
                       {item}
                     </li>
                   ))}
@@ -92,7 +99,7 @@ export default function About() {
               </div>
             ))}
           </div>
-        </AnimatedSection>
+        </Reveal>
       </div>
     </section>
   );

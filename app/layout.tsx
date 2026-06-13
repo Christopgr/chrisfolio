@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif, Bodoni_Moda } from "next/font/google";
+import { Archivo, Instrument_Serif, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-archivo",
 });
 
 const instrumentSerif = Instrument_Serif({
@@ -14,9 +14,10 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
 });
 
-const bodoniModa = Bodoni_Moda({
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
   subsets: ["latin"],
-  variable: "--font-bodoni-moda",
+  variable: "--font-space-mono",
 });
 
 const SITE_URL = "https://christopalis.com";
@@ -92,7 +93,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${inter.variable} ${instrumentSerif.variable} ${bodoniModa.variable}`}
+      className={`h-full antialiased ${archivo.variable} ${instrumentSerif.variable} ${spaceMono.variable}`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

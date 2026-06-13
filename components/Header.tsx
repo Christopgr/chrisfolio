@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
+  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
+  { label: "Career", href: "#experience" },
 ];
 
 export default function Header() {
@@ -48,7 +48,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`group relative text-[15px] leading-tight inline-flex transition-colors duration-300 ${
+                className={`group relative font-mono text-xs uppercase tracking-[0.2em] leading-tight inline-flex transition-colors duration-300 ${
                   activeSection === link.href ? "text-accent" : "text-text"
                 }`}
               >
@@ -66,10 +66,10 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Center: logo */}
+          {/* Center: wordmark */}
           <a
             href="#"
-            className="font-logo text-3xl sm:text-4xl text-text hover:opacity-70 transition-opacity justify-self-center whitespace-nowrap"
+            className="font-mono text-sm uppercase tracking-[0.35em] text-text hover:text-accent transition-colors justify-self-center whitespace-nowrap"
           >
             Chris Topalis
           </a>
@@ -78,7 +78,7 @@ export default function Header() {
           <div className="flex items-center justify-end">
             <a
               href="#contact"
-              className="group relative inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-lg overflow-hidden transition-all duration-300 hover:bg-accent-dim"
+              className="group relative inline-flex items-center gap-2 px-5 py-2.5 bg-text text-bg text-sm font-medium overflow-hidden transition-colors duration-300 hover:bg-accent"
             >
               <span className="relative z-10">Let&apos;s Connect</span>
               <svg
@@ -102,7 +102,7 @@ export default function Header() {
         <div className="flex md:hidden items-center justify-between">
           <a
             href="#"
-            className="font-logo text-2xl text-text"
+            className="font-mono text-sm uppercase tracking-[0.3em] text-text"
           >
             Chris Topalis
           </a>
@@ -149,17 +149,18 @@ export default function Header() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.3 }}
-                  className="text-2xl text-text font-light"
+                  className="font-display italic text-4xl text-text"
                 >
                   {link.label}
                 </motion.a>
               ))}
               <motion.a
                 href="#contact"
+                onClick={() => setMenuOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.3 }}
-                className="mt-4 px-6 py-3 bg-accent text-white text-sm font-medium rounded-lg"
+                className="mt-4 px-6 py-3 bg-text text-bg text-sm font-medium"
               >
                 Let&apos;s Connect
               </motion.a>

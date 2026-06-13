@@ -16,26 +16,11 @@ export default function OGImage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          background: "#f3eeed",
+          background: "#f4f1ec",
           fontFamily: "sans-serif",
           position: "relative",
         }}
       >
-        {/* Accent glow */}
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: 500,
-            height: 500,
-            borderRadius: "50%",
-            background: "rgba(184, 51, 46, 0.06)",
-            filter: "blur(80px)",
-          }}
-        />
-
         {/* Top line */}
         <div
           style={{
@@ -50,22 +35,29 @@ export default function OGImage() {
               width: 8,
               height: 8,
               borderRadius: "50%",
-              background: "#ebbd58",
+              background: "#b8332e",
             }}
           />
-          <span style={{ color: "#6e6360", fontSize: 20 }}>
-            Software Engineer @ Wealthyhood
+          <span
+            style={{
+              color: "#6e6260",
+              fontSize: 18,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+            }}
+          >
+            Software Engineer · Athens
           </span>
         </div>
 
         {/* Name */}
         <h1
           style={{
-            fontSize: 72,
-            fontWeight: 300,
-            color: "#1a1a1a",
+            fontSize: 96,
+            fontWeight: 500,
+            color: "#141414",
             margin: 0,
-            letterSpacing: "-0.02em",
+            letterSpacing: "-0.04em",
           }}
         >
           Chris Topalis
@@ -74,13 +66,13 @@ export default function OGImage() {
         {/* Tagline */}
         <p
           style={{
-            fontSize: 24,
+            fontSize: 28,
             color: "#b8332e",
             margin: "16px 0 0 0",
             fontStyle: "italic",
           }}
         >
-          Crafting Digital Experiences That Matter
+          Building the web, end to end.
         </p>
 
         {/* Skills */}
