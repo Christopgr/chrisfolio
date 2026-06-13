@@ -120,7 +120,7 @@ export default function Contact() {
                       name="name"
                       placeholder="Your name"
                       required
-                      className="w-full bg-bg border border-border rounded-lg px-4 py-3.5 text-base text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
+                      className="w-full bg-bg border border-border px-4 py-3.5 text-base text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
                     />
                   </div>
                   <div>
@@ -129,7 +129,7 @@ export default function Contact() {
                       name="email"
                       placeholder="Your email"
                       required
-                      className="w-full bg-bg border border-border rounded-lg px-4 py-3.5 text-base text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
+                      className="w-full bg-bg border border-border px-4 py-3.5 text-base text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors"
                     />
                   </div>
                   <div>
@@ -138,7 +138,7 @@ export default function Contact() {
                       rows={5}
                       placeholder="Your message..."
                       required
-                      className="w-full bg-bg border border-border rounded-lg px-4 py-3.5 text-base text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors resize-none"
+                      className="w-full bg-bg border border-border px-4 py-3.5 text-base text-text placeholder:text-muted focus:outline-none focus:border-accent/40 transition-colors resize-none"
                     />
                   </div>
                   {status === "error" && (
@@ -147,7 +147,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="px-6 py-3.5 rounded-full bg-accent text-white text-sm font-medium hover:bg-accent-dim transition-colors duration-200 w-full disabled:opacity-60"
+                    className="px-6 py-3.5 bg-accent text-white text-sm font-medium hover:bg-accent-dim transition-colors duration-200 w-full disabled:opacity-60"
                   >
                     {status === "sending" ? "Sending..." : "Send Message"}
                   </button>
