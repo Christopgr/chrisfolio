@@ -47,7 +47,3 @@ certificates
 
 # Claude Design card sources (synced to claude.ai/design)
 /design/
-
-# Heavy image originals — optimized .webp derivatives are committed instead
-/public/greek-village.png
-/public/portrait.jpg
