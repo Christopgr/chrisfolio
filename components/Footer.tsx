@@ -1,22 +1,6 @@
 export default function Footer() {
   return (
     <footer>
-      {/* Closing statement — dark textured breather, white-outlined type */}
-      <a
-        href="mailto:ctopalis@gmail.com"
-        className="index-row group block paper-grey py-20 sm:py-32"
-        aria-label="Email Chris Topalis"
-      >
-        <div className="max-w-6xl mx-auto px-6">
-          <span className="text-outline-light display text-[clamp(2.75rem,11vw,9rem)] block">
-            Let&apos;s build
-            <br />
-            something
-            <span className="text-accent"> ↗</span>
-          </span>
-        </div>
-      </a>
-
       {/* Colophon */}
       <div className="py-10 border-t border-border">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
