@@ -14,7 +14,7 @@ export default function About() {
   return (
     <section id="about" className="py-28 sm:py-40 relative">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeading number="02" label="About" title="The artist." />
+        <SectionHeading number="01" label="About" title="The artist." />
 
         <div className="grid md:grid-cols-12 gap-12 lg:gap-16 mb-20">
           {/* Portrait — cropped above the cup, kept in colour (crimson light = the accent) */}

@@ -38,7 +38,7 @@ export default function Work() {
   return (
     <section id="work" className="py-28 sm:py-40 relative">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeading number="01" label="Selected Work" title="The catalogue." />
+        <SectionHeading number="02" label="Selected Work" title="The catalogue." />
 
         {/* Desktop: typographic catalogue with cursor-following preview */}
         <div

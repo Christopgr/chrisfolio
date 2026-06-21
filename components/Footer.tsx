@@ -4,7 +4,7 @@ export default function Footer() {
       {/* Closing statement — dark textured breather, white-outlined type */}
       <a
         href="mailto:ctopalis@gmail.com"
-        className="index-row group block grain-dark py-20 sm:py-32"
+        className="index-row group block paper-grey py-20 sm:py-32"
         aria-label="Email Chris Topalis"
       >
         <div className="max-w-6xl mx-auto px-6">
